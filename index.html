@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: white;
+      transition: background-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-right: 20px; 
+    }
+    
+    .card .front {
+      position: absolute;
+      z-index: 2;
+      opacity: 1;
+      transform: rotateY(0deg);
+      transition: transform 0.5s ease;
+      transition: opacity 0.5s ease;
+    }
+    
+    .card .back {
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      transform: rotateY(180deg);
+      transition: transform 0.5s ease;
+      transition: opacity 0.5s ease;   
+
+      background-color: white;
+    }
+
+    .card:hover .front { 
+      opacity: 0;
+    }
+
+    .card:hover .back { 
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class = "row">
+    <div class = "card" data-bg = "Canada1.jpeg">
+      <div class = "front">
+        <img src = "Canada1.jpeg" width = "100px" height = "100px">
+      </div>
+      
+      <div class = "back">
+        <p>Canada</p>
+        <p>Ottawa</p>
+        <p>38.39 million</p>
+      </div>
+    </div>
+  
+    <div class = "card" data-bg = "Spain.webp">
+      <div class = "front">
+        <img src = "Spain.webp" width = "100px" height = "100px">
+      </div>
+  
+      <div class = "back">
+        <p>Spain</p>
+        <p>Madrid</p>
+        <p>47.78 million</p>
+      </div>
+    </div>
+    
+    <div class = "card" data-bg = "Finland.png">
+      <div class = "front">
+        <img src= "Finland.png" width = "100px" height = "100px">
+      </div>
+  
+      <div class = "back">
+        <p>Finland</p>
+        <p>Helsinki</p>
+        <p>5.556 million</p>
+      </div>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class = "card" data-bg = "Germany.png">
+      <div class = "front">
+        <img src = "Germany.png" width = "100px" height = "100px">
+      </div>
+  
+      <div class = "back">
+        <p>Germany</p>
+        <p>Berlin</p>
+        <p>83.8 million</p>
+      </div> 
+    </div>
+  
+    <div class = "card" data-bg = "Australia.png">
+      <div class = "front">
+        <img src = "Australia.png" width = "100px" height = "100px">
+      </div>
+  
+      <div class = "back">
+        <p>Australia</p>
+        <p>Canberra</p>
+        <p>26.01 million</p>
+      </div>
+    </div>
+  
+    <div class = "card" data-bg = "Brazil.png">
+      <div class = "front">
+        <img src = "Brazil.png" width = "100px" height = "100px">
+      </div>
+  
+      <div class = "back">
+        <p>Brazil</p>
+        <p>Brazília</p>
+        <p>215.3 million</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var cards = document.querySelectorAll (".card");
+
+    cards.forEach (current_card => {
+      current_card.addEventListener ('mouseover', () => {
+        var image = current_card.getAttribute ("data-bg");
+        document.body.style.backgroundImage = `url(${image})`;
+      });
+
+
+      current_card.addEventListener ('mouseout', () => {
+        document.body.style.backgroundImage = "";
+      });
+      
+      
+    });
+    
+  </script>
+
+</body>
+
+</html>
